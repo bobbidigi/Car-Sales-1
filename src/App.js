@@ -7,16 +7,16 @@ import Total from './components/Total';
 // actions
 import {addFeature, removeFeature} from './actions/featureActions'
 
-const App = () => {
+const App = ({addFeature, removeFeature, additionalPrice, additionalFeatures, car}) => {
   return (
     <div className="boxes">
       <div className="box">
-        <Header car={state.car} />
-        <AddedFeatures car={state.car} />
+        <Header car={car} />
+        <AddedFeatures removeFeature={removeFeature} car={car} />
       </div>
       <div className="box">
-        <AdditionalFeatures additionalFeatures={state.additionalFeatures} />
-        <Total car={state.car} additionalPrice={state.additionalPrice} />
+        <AdditionalFeatures addFeature={addFeature} additionalFeatures={additionalFeatures} />
+        <Total car={car} additionalPrice={additionalPrice} />
       </div>
     </div>
   );
